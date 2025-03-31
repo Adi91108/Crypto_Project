@@ -28,7 +28,7 @@ function ComparePage() {
         setDays(event.target.value);
         const prices1 = await getCoinPrices(crypto1, event.target.value, priceType);
         const prices2 = await getCoinPrices(crypto2, event.target.value, priceType);
-        settingChartData(setChartData, prices1, prices2, cryptoData.name, crypto2Data.name);
+        settingChartData(setChartData, prices1, prices2, cryptoData?.name, crypto2Data.name);
         setIsLoading(false);
     }
 
@@ -37,14 +37,14 @@ function ComparePage() {
         if (newType == null) {
             const prices1 = await getCoinPrices(crypto1, days, priceType);
             const prices2 = await getCoinPrices(crypto2, days, priceType);
-            settingChartData(setChartData, prices1, prices2, cryptoData.name, crypto2Data.name);
+            settingChartData(setChartData, prices1, prices2, cryptoData?.name, crypto2Data?.name);
             setIsLoading(false);
         }
         else {
             setPriceType(newType);
             const prices1 = await getCoinPrices(crypto1, days, newType);
             const prices2 = await getCoinPrices(crypto2, days, newType);
-            settingChartData(setChartData, prices1, prices2, cryptoData.name, crypto2Data.name);
+            settingChartData(setChartData, prices1, prices2, cryptoData?.name, crypto2Data?.name);
             setIsLoading(false);
         }
     }
@@ -67,8 +67,8 @@ async function getData() {
     if (data1 && data2) {
         const prices1 = await getCoinPrices(crypto1, days, priceType);
         const prices2 = await getCoinPrices(crypto2, days, priceType);
-        if (prices1.length > 0 && prices2.length > 0) {
-            settingChartData(setChartData, prices1, prices2, data1.name, data2.name);
+        if (prices1?.length > 0 && prices2?.length > 0) {
+            settingChartData(setChartData, prices1, prices2, data1?.name, data2?.name);
             // console.log("BOTH", prices1, prices2);
             setIsLoading(false);
         }
@@ -85,7 +85,7 @@ const handleCoinChange = async (event, isCoin2) => {
         }
         const prices1 = await getCoinPrices(crypto1, days, priceType);
         const prices2 = await getCoinPrices(crypto2, days, priceType);
-        settingChartData(setChartData, prices1, prices2, cryptoData.name, data.name)
+        settingChartData(setChartData, prices1, prices2, cryptoData?.name, data?.name)
     }
     else {
         setCrypto1(event.target.value);
@@ -95,7 +95,7 @@ const handleCoinChange = async (event, isCoin2) => {
         }
         const prices1 = await getCoinPrices(crypto1, days, priceType);
         const prices2 = await getCoinPrices(crypto2, days, priceType);
-        settingChartData(setChartData, prices1, prices2, data.name, crypto2Data.name)
+        settingChartData(setChartData, prices1, prices2, data?.name, crypto2Data?.name)
     }
     setIsLoading(false);
 };

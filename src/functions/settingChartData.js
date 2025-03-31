@@ -4,11 +4,11 @@ export const settingChartData = (setChartData, prices1, prices2, crypto1, crypto
 
     if(prices2){
         setChartData({
-            labels: prices1.map((price)=> convertDate(price[0])),
+            labels: prices1?.map((price)=> convertDate(price[0])),
             datasets: [
                 {
                     label: crypto1,
-                    data: prices1.map((price)=> price[1]),
+                    data: prices1?.map((price)=> price[1]),
                     borderColor: "#61c96f",
                     borderWidth: 2,
                     backgroundColor: "rgba(58, 128, 233, 0.1)",
@@ -21,7 +21,7 @@ export const settingChartData = (setChartData, prices1, prices2, crypto1, crypto
                 },
                 {
                     label: crypto2,
-                    data: prices2.map((price)=> price[1]),
+                    data: prices2?.map((price)=> price[1]),
                     borderColor: "#f94141",
                     borderWidth: 2,
                     backgroundColor: "rgba(58, 128, 233, 0.1)",
@@ -37,11 +37,11 @@ export const settingChartData = (setChartData, prices1, prices2, crypto1, crypto
     }
     else{
         setChartData({
-            labels: prices1.map((price)=> convertDate(price[0])),
+            labels: prices1?.map((price)=> convertDate(price[0])),
             datasets: [
                 {
                     // label: 'Dataset 1',
-                    data: prices1.map((price)=> price[1]),
+                    data: prices1?.map((price)=> price[1]),
                     borderColor: "#3a80e9",
                     borderWidth: 2,
                     backgroundColor: "rgba(58, 128, 233, 0.1)",
